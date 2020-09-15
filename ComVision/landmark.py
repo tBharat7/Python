@@ -18,28 +18,12 @@ while True:
 
     for face in faces:
         landmarks = predictor(gray, face)
-        # print(landmarks.parts())
-        lip_up = landmarks.parts()[62].y
-        lip_down = landmarks.parts()[66].y
-        leye=landmarks.parts()[36].y
-        reye=landmarks.parts()[45].y
-        l=landmarks.parts()[0].y
-        r=landmarks.parts()[16].y
-        if leye-l>2:
-            keyboard.press("left")
-        if reye-r>2:
-            keyboard.press("right")
+        print(landmarks.parts())
+       
 
-        if lip_down - lip_up > 5:
-            keyboard.release("up")
-        else:
-            keyboard.press("up")
+      
 
 
-        # print(nose.x, nose.y)
-
-
-    # print(faces)
 
     if ret:
         cv2.imshow("My Screen", frame)
